@@ -36,7 +36,7 @@ const Login = () => {
   initial={{ scale: 0.5 }}
   animate={{ scale: 1 }}
   transition={{ duration: 0.4 }}
-  className="min-h-screen w-full flex  lg:flex-row items-center justify-center gap-6 lg:gap-10 px-4"
+  className="min-h-screen w-full flex flex-col  lg:flex-row items-center justify-center gap-6 lg:gap-10 px-4"
 >
   
   <div className="w-full max-w-md lg:max-w-lg">
