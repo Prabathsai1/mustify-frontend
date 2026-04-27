@@ -15,7 +15,9 @@ function Music() {
   const musicarray = music
     .map((r) => r?.music?.[0]?.[1])
     .filter(Boolean)
-
+ 
+  const musicImage = music.map((r) => r.music[0][0])
+  
   function playlist(song, index,img) {
     const audio = reference.current?.audio?.current
     setimage(img)
@@ -33,18 +35,18 @@ function Music() {
     if (musicarray.length === 0) return
       setimage(img)
       autoplay.current = (autoplay.current + 1) % musicarray.length
-    
+    setimage(musicImage[autoplay.current])
     setSonglink(musicarray[autoplay.current])
   }
 
   function previousSong() {
     if (musicarray.length === 0) return
-        setimage(img)
+      
      
       autoplay.current =
         (autoplay.current - 1 + musicarray.length) % musicarray.length
     
-
+    setimage(musicImage[autoplay.current])
     setSonglink(musicarray[autoplay.current])
   }
 
