@@ -31,7 +31,7 @@ function Music() {
 
   function nextsong() {
     if (musicarray.length === 0) return
-    
+      setimage(img)
       autoplay.current = (autoplay.current + 1) % musicarray.length
     
     setSonglink(musicarray[autoplay.current])
@@ -39,7 +39,7 @@ function Music() {
 
   function previousSong() {
     if (musicarray.length === 0) return
-
+        setimage(img)
      
       autoplay.current =
         (autoplay.current - 1 + musicarray.length) % musicarray.length
