@@ -13,7 +13,7 @@ const Login = () => {
 
   async function validation(data) {
     try {
-      const response = await axios.post("http://localhost:3000/spotify/login", data, {
+      const response = await axios.post("https://mustify-backend.onrender.com/spotify/login", data, {
         withCredentials: true
       })
       if (response.data.success) {
