@@ -16,7 +16,7 @@ return(
   <input id="my-drawer-2"  type="checkbox" className="drawer-toggle" />
   <div className="drawer-content flex flex-col">
     <div className="navbar w-full">
-      <div className="flex-none lg:hidden">
+      <div className="flex-none">
         <label htmlFor="my-drawer-2" aria-label="open sidebar" className="btn btn-square btn-ghost">
           <svg
             xmlns="http://www.w3.org/2000/svg"
