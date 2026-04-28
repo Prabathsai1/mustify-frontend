@@ -5,6 +5,7 @@ import { toast } from "react-toastify";
 import { motion } from "motion/react";
 import Img from "../../components/img/img.jsx";
 import axiosInstance from "../../components/api/axios.jsx";
+import { useNavigate } from "react-router-dom";
 
 function Register() {
   const {
@@ -14,6 +15,8 @@ function Register() {
     formState: { errors },
   } = useForm({ defaultValues: { Role: "" } });
 
+   const navigate = useNavigate();
+  
   const [disable, setDisable] = useState(false);
 
   async function handleRegister(data) {
@@ -23,6 +26,7 @@ function Register() {
 
       if (response?.data?.success) {
         toast.success(response.data.message || "Registered successfully");
+         navigate("/login", { replace: true });
         reset();
       }
     } catch (error) {
