@@ -9,7 +9,7 @@ import { useAuth } from '../../context/Authcontext.jsx'
 
 const Login = () => {
   const { register, handleSubmit, formState: { errors }, } = useForm();
-  const [login,setLogin]=useState(null)
+  const [login,setLogin]=useState(false)
   const navigate = useNavigate()
   const { setState } = useAuth()
 
@@ -20,7 +20,7 @@ const Login = () => {
         withCredentials: true
       })
       if (response.data.success) {
-        toast.success(response.data.message)
+        toast.success(response?.data?.message)
         navigate('/home', { replace: true })
         setState(true)
         console.log(response.data)
@@ -29,8 +29,7 @@ const Login = () => {
     catch (error) {
       setLogin(false)
       setState(false)
-      console.log(error.response)
-      toast.error(error.response.data.message)
+     toast.error(error?.response?.data?.message || "Login failed")
     }
   }
 
@@ -93,10 +92,8 @@ const Login = () => {
       </div>
 
       <div className="flex flex-col gap-2 items-center">
-        {login ?<button className="bg-red-600 py-2 px-4 rounded-md text-white w-full hover:bg-red-700 transition">
-          Submitting
-        </button>:<button className="bg-red-600 py-2 px-4 rounded-md text-white w-full hover:bg-red-700 transition">
-          Submit
+        <button className="bg-red-600 py-2 px-4 rounded-md text-white w-full hover:bg-red-700 transition">
+          {login?"Submitting":"submit"}
         </button>}
         <small className="text-center">
           Don't have an account{" "}
