@@ -27,7 +27,7 @@ const Login = () => {
       }
     }
     catch (error) {
-      setlogin(false)
+      setLogin(false)
       setState(false)
       console.log(error.response)
       toast.error(error.response.data.message)
