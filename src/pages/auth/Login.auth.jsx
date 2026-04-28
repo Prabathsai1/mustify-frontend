@@ -2,17 +2,20 @@ import { useForm } from 'react-hook-form'
 import { Link, useNavigate,Outlet } from 'react-router-dom'
 import { toast } from 'react-toastify'
 import axios from 'axios'
+import {useState} from 'react'
 import { motion } from "motion/react"
 import Img from "../../components/img/img.jsx"
 import { useAuth } from '../../context/Authcontext.jsx'
 
 const Login = () => {
   const { register, handleSubmit, formState: { errors }, } = useForm();
+  const [login,setLogin]=useState(null)
   const navigate = useNavigate()
   const { setState } = useAuth()
 
   async function validation(data) {
     try {
+      setLogin(true)
       const response = await axios.post("https://mustify-backend.onrender.com/spotify/login", data, {
         withCredentials: true
       })
@@ -24,6 +27,7 @@ const Login = () => {
       }
     }
     catch (error) {
+      setlogin(false)
       setState(false)
       console.log(error.response)
       toast.error(error.response.data.message)
@@ -89,9 +93,11 @@ const Login = () => {
       </div>
 
       <div className="flex flex-col gap-2 items-center">
-        <button className="bg-red-600 py-2 px-4 rounded-md text-white w-full hover:bg-red-700 transition">
-          Submit
-        </button>
+        {login ?<button className="bg-red-600 py-2 px-4 rounded-md text-white w-full hover:bg-red-700 transition">
+          Submitting
+        </button>:<button className="bg-red-600 py-2 px-4 rounded-md text-white w-full hover:bg-red-700 transition">
+          Submitting
+        </button>}
         <small className="text-center">
           Don't have an account{" "}
           <Link to="/register" className="text-red-500 font-semibold">
