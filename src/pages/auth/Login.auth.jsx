@@ -92,7 +92,7 @@ const Login = () => {
       </div>
 
       <div className="flex flex-col gap-2 items-center">
-        <button className="bg-red-600 py-2 px-4 rounded-md text-white w-full hover:bg-red-700 transition">
+        <button disabled={login} className="bg-red-600 py-2 px-4 rounded-md text-white w-full hover:bg-red-700 transition">
           {login?"Submitting":"submit"}
         </button>
         <small className="text-center">
