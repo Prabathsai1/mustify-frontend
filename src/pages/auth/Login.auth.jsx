@@ -96,7 +96,7 @@ const Login = () => {
         {login ?<button className="bg-red-600 py-2 px-4 rounded-md text-white w-full hover:bg-red-700 transition">
           Submitting
         </button>:<button className="bg-red-600 py-2 px-4 rounded-md text-white w-full hover:bg-red-700 transition">
-          Submitting
+          Submit
         </button>}
         <small className="text-center">
           Don't have an account{" "}
