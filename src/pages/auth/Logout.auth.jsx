@@ -6,6 +6,7 @@ try{
         if(response.data.success){
         toast.success(response.data.message)
         setState(false)
+        localStorage.clear();
         Navigate("/login" ,{replace:true})
         }
     }
