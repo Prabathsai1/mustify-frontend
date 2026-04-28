@@ -131,11 +131,11 @@ useEffect(() => {
       </ul>
       <div className="flex items-center sticky bottom-0 mt-10 max-sm:flex-col max-sm:items-center max-sm:gap-2 px-2">
   
-  <img
+        {image && <img
     className="h-25 max-w-xs rounded-box"
     src={image}
     alt="song"
-  />
+  />}
 
   <AudioPlayer
     className="dark-player rounded-xl overflow-hidden w-full"
